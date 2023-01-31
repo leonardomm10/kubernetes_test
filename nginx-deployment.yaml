@@ -20,16 +20,12 @@ spec:
         - name: nginx-config
           mountPath: /etc/nginx/conf.d/example.conf
           subPath: example.conf
-        # - name: shared-files
-        #   mountPath: /var/www/html
         - name: my-pvc-local
           mountPath: /var/www/html
       volumes:
       - name: nginx-config
         configMap:
           name: nginx-config
-      # - name: shared-files
-      #   emptyDir: {}
       - name: my-pvc-local
         persistentVolumeClaim:
           claimName: pvc-local
