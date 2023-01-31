@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment
+spec:
+  selector:
+    matchLabels:
+      app: php
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+      - name: php
+        image: php:7.4-fpm
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+          - name: my-pvc-local
+            mountPath: /var/www/html
+      volumes:
+        - name: my-pvc-local
+          persistentVolumeClaim:
+            claimName: pvc-local
