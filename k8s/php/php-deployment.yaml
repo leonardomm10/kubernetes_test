@@ -13,13 +13,19 @@ spec:
     spec:
       containers:
       - name: php
-        image: leonardomm10/php8.2-fpm
+        image: leonardomm10/php8.2-fpm_test
         ports:
         - containerPort: 9000
         volumeMounts:
           - name: my-pvc-local
             mountPath: /var/www/html
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "cp -r /app/. /var/www/html"]
       volumes:
         - name: my-pvc-local
           persistentVolumeClaim:
             claimName: pvc-local
+        - name: shared-files
+          emptyDir: {}

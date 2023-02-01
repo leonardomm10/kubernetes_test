@@ -1,6 +1,9 @@
 FROM php:8.2-fpm
 
-WORKDIR /usr/local/etc
+RUN mkdir /app
+COPY src/index.php /app
+
+WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y \
     wget \
@@ -21,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-COPY php-fpm.conf /usr/local/etc/php-fpm.d/php-fpm.conf
+#COPY php-fpm.conf /usr/local/etc/php-fpm.d/php-fpm.conf
 
 RUN echo "date.timezone = America/Sao_Paulo" >> /usr/local/etc/php/conf.d/php.ini
 RUN echo "memory_limit = 128M" >> /usr/local/etc/php/conf.d/php.ini
