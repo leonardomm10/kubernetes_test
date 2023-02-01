@@ -20,7 +20,7 @@ k3d cluster create mycluster -p "80:30000@loadbalancer" --volume /tmp/volume:/tm
 
 - Apply the manifests
 ```
-kubect apply -f ./
+kubect apply -f ./ --recursive
 ```
 
 - Crete index.php file

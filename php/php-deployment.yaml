@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: php
-        image: php:8.2-fpm
+        image: leonardomm10/php8.2-fpm
         ports:
         - containerPort: 9000
         volumeMounts:
