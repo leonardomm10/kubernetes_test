@@ -3,15 +3,17 @@ kind: ConfigMap
 metadata:
   name: nginx-config
 data:
-  example.conf: |
+  default.conf: |
     # Nginx configuration
     server {
-        listen 80;
-        server_name example.com;
+        listen       80;
+        listen  [::]:80;
+        server_name  localhost;
 
-        error_log /var/log/nginx/example.com.log;
+        access_log  /var/log/nginx/access.log  main;
+        error_log   /var/log/nginx/error.log;
 
-        root /var/www/html;
+        root /app;
         index index.php index.html;
 
         location / {

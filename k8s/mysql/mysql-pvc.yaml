@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pvc-local
+  name: mysql-do-pvc
 spec:
-  storageClassName: manual
+  storageClassName: do-block-storage
   accessModes:
     - ReadWriteOnce
   resources:
