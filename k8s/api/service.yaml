@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: php-service
+  name: api-service
 spec:
   selector:
-    app: php
+    app: api
   ports:
   - port: 9000
     targetPort: 9000

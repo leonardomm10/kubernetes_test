@@ -6,5 +6,5 @@ variable "do_token" {
 variable "region" {
   type        = string
   description = "Digital Ocean Region"
-  default     = "nyc3"
+  default     = "nyc1"
 }
