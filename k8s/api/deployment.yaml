@@ -17,6 +17,13 @@ spec:
         ports:
         - containerPort: 9000
         imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "0.05"
+          limits:
+            memory: 500Mi
+            cpu: "0.5"
         envFrom:
           - configMapRef:
               name: api-configmap

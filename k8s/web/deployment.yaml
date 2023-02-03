@@ -16,6 +16,13 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "0.05"
+          limits:
+            memory: 500Mi
+            cpu: "0.5"
         volumeMounts:
         - name: web-config
           mountPath: /etc/nginx/conf.d/default.conf
