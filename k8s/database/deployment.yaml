@@ -15,8 +15,8 @@ spec:
       - name: database
         image: mysql:8.0
         envFrom:
-          - configMapRef:
-              name: database-configmap
+          - secretRef:
+              name: database-secret
         ports:
         - containerPort: 3306
       #   volumeMounts:

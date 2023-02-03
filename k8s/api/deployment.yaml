@@ -20,3 +20,9 @@ spec:
         envFrom:
           - configMapRef:
               name: api-configmap
+        env:
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_ROOT_PASSWORD
+                name: database-secret
