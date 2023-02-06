@@ -26,10 +26,10 @@ spec:
               name: database-secret
         ports:
         - containerPort: 3306
-      #   volumeMounts:
-      #     - name: database-pvc
-      #       mountPath: /var/lib/mysql
-      # volumes:
-      #   - name: database-pvc
-      #     persistentVolumeClaim:
-      #       claimName: database-pvc-do
+        volumeMounts:
+          - name: database-pvc
+            mountPath: /var/lib/mysql
+      volumes:
+        - name: database-pvc
+          persistentVolumeClaim:
+            claimName: database-pvc
