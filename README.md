@@ -19,7 +19,7 @@ mkdir -p /tmp/volume
 k3d cluster create mycluster -p "80:30000@loadbalancer" --volume /tmp/volume:/tmp/volume
 ```
 
-### Aplication configuration
+### Application configuration
 - Clone the project above inside directory app/ 
 
 https://github.com/dev-lmoreno/schedule-thing
