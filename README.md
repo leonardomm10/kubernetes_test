@@ -1,10 +1,13 @@
 # Cluster Kubernetes
-Cluster with nginx and php-fpm using local storage
+Cluster with nginx and php-fpm using local storage for mysql to deploy an php api.
 
 ### Requirements
-- docker
+- docker   -> https://docs.docker.com/engine/install/ubuntu/
+- kubectl  -> https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 - k3d
-- kubectl
+```
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+```
 
 ### Cluster Configuration
 - Create the directory to persist data
@@ -20,10 +23,5 @@ k3d cluster create mycluster -p "80:30000@loadbalancer" --volume /tmp/volume:/tm
 
 - Apply the manifests
 ```
-kubect apply -f ./ --recursive
-```
-
-- Crete index.php file
-```
-echo "<?php phpinfo(); ?>" > /tmp/volume/index.php
+kubect apply -f k8s/ --recursive
 ```
