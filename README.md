@@ -23,5 +23,5 @@ k3d cluster create mycluster -p "80:30000@loadbalancer" --volume /tmp/volume:/tm
 
 - Apply the manifests
 ```
-kubect apply -f k8s/ --recursive
+kubectl apply -f k8s/ --recursive
 ```
