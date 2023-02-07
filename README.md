@@ -19,9 +19,18 @@ mkdir -p /tmp/volume
 k3d cluster create mycluster -p "80:30000@loadbalancer" --volume /tmp/volume:/tmp/volume
 ```
 
+### Aplication configuration
+- Clone the project above inside directory app/ 
+https://github.com/dev-lmoreno/schedule-thing
+
 ### Execute
 
 - Apply the manifests
 ```
 kubectl apply -f k8s/ --recursive
+```
+
+- Configure database
+```
+kubectl exec -i $(kubectl get pods | grep database | awk '{print $1}') -- mysql -u root -p'admin123' < app/schedule-thing/SqlScripts/sql.sql
 ```
